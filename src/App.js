@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { data } from './data';
 import './App.css';
 
 function App() {
+  
+  const [deals, setDeals] = useState (data);
+  const removeDeal = (id) => {
+    let newDeals = deals.filter(deal => deal.id !==id);
+    setDeals (newDeals);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className='container'>
+        <h1>My Bucket List of {deals.length} Deals</h1>
+      </div>
+      {deals.map((element => {
+        const {id, deal, image} = element;
+        return(
+          <div className='main' key = {id}>
+            <div className='container'>
+              <h2>{id} - {deal}</h2>
+            </div>
+            <div className='container'>
+              <img src={ image } alt="picture" width="400px"/>
+            </div>
+            <div className='container'>
+              <button className='btn remove' onClick={() => removeDeal(id)}>REMOVE</button>
+            </div>
+          </div>
+        )
+      }))
+      }
+      <div className='container'>
+        <button className='btn delete' onClick={()=> setDeals([])}>DELETE ALL</button>
+      </div>
     </div>
   );
 }
