@@ -23,7 +23,7 @@ function App() {
               <h2>{id} - {deal}</h2>
             </div>
             <div className='container'>
-              <img src={ image } alt="picture" width="400px"/>
+              <img src={ image } alt={deal} width="400px"/>
             </div>
             <div className='container'>
               <button className='btn remove' onClick={() => removeDeal(id)}>REMOVE</button>
