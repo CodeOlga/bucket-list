@@ -23,7 +23,6 @@ body{
   width: 200px;
   padding: 10px;
   color: #364F6B;
-  
   border: none;
   font-size: 20px;
 }
@@ -32,4 +31,20 @@ body{
 }
 .delete{
   background-color: #FC5185;
+}
+@media all and (max-width: 500px){
+  .main{
+    width: 360px;
+    height: 500px;
+  }
+  h1{
+    font-size: 27px;
+  }
+  img{
+    width: 300px;
+  }
+  .btn{
+    width: 150px;
+    font-size: 18px;
+  }
 }
